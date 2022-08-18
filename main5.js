@@ -65,16 +65,16 @@ console.log(students.sort((a, b) => a.name.toUpperCase() > b.name.toUpperCase() 
 const nums = [54, 11, 36, 32, 67, 89, 25]
 
 /*for (let j = 0; j < nums.length - 1; j++) {
-    let isSorted=true
+    let isSorted=true //optimisation, shouldn't use
     for (let i = 0; i < nums.length - 1 - j; i++) { //increase
         if (nums[i] > nums[i + 1]) {
-            isSorted=false
+            isSorted=false //optimisation, shouldn't use
             const temp = nums[i]
             nums[i] = nums[i + 1]
             nums[i + 1] = temp
         }
     }
-    if(isSorted)break
+    if(isSorted)break //optimisation, shouldn't use
 }*/
 //On2 difficult
 
@@ -82,8 +82,8 @@ for (let j = 0; j < nums.length - 1; j++) {
     let isSorted = true
     for (let i = 0; i < nums.length - 1 - j; i++) { //increase
         if (nums[i] > nums[i + 1]) {
-            isSorted = false;
-            [nums[i + 1], nums[i]] = [nums[i], nums[i + 1]]
+            isSorted = false; //need to use ;    !!!!
+            [nums[i + 1], nums[i]] = [nums[i], nums[i + 1]] //destructurisation
         }
     }
     if (isSorted) break
