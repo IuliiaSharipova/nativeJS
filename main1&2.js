@@ -112,7 +112,7 @@ const getFilteredArray = (arr, filterFn) => {
 }
 console.log(getFilteredArray(students, st => st.age > 20))
 
-const selfMadeFilter = (arr, findFn) => {
+const selfMadeFind = (arr, findFn) => {
     for (i = 0; i < arr.length; i++) {
         const newValue = findFn(arr[i])
         if (newValue === true) {
@@ -120,7 +120,7 @@ const selfMadeFilter = (arr, findFn) => {
         }
     }
 }
-console.log(selfMadeFilter(students, st => st.name === 'Nick'))
+console.log(selfMadeFind(students, st => st.name === 'Nick'))
 //аналог find. возвращает первый элемент, удовлетворяющий условиям.
 // не создается новый массив
 console.log(students.find(st => st.name === 'Nick'))
