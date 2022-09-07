@@ -78,6 +78,7 @@ let students = [
     }
 ];
 
+//template what we want
 const sts = {
     '1': {
         name: "Bob",
@@ -86,10 +87,29 @@ const sts = {
         scores: 85
     }
 }
-console.log(students.reduce((acc,el)=>{
-    acc[el.id]={...el}
-    delete acc[el.id].id
-    return acc
-},{}))
 
-console.log(students.reduce((acc,el)=>acc+el.scores,0))
+console.log(students.reduce((acc, el) => {
+    acc[el.id] = {...el} //create key and make full copy of element
+    delete acc[el.id].id  //delete key-id from full object
+    return acc
+}, {}))
+
+//find student with max score
+console.log(students.reduce((acc, el) => acc.scores > el.scores ? acc : el))
+
+//add ten points for students scores
+console.log(students.reduce((acc, el) => {
+    acc.push({...el, scores: el.scores + 10})
+    return acc
+}, []))
+
+//find students with score > = 100
+console.log(students.reduce((acc, el) => {
+    if (el.scores >= 100) {
+        acc.push({...el})
+    }
+    return acc
+}, []))
+
+//sum students scores
+console.log(students.reduce((acc, el) => acc + el.scores, 0))
